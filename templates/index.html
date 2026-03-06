@@ -179,12 +179,13 @@
 <!-- ===== SOUNDWAVE DIVIDER ===== -->
 <div class="soundwave-divider py-4">
     <div class="flex items-end justify-center gap-1 h-10">
-        {% for i in range(40) %}
+        {% for i in range(0, 40) %}
         <div class="soundwave-bar bg-gradient-to-t from-purple-600 to-pink-500 rounded-sm w-1.5"
-            style="animation-delay: {{ loop.index * 0.05 }}s;"></div>
+            style="animation-delay: {{ i * 0.05 }}s;"></div>
         {% endfor %}
     </div>
 </div>
+
 
 <!-- ===== WHAT WE DO ===== -->
 <section class="py-20 bg-vibe-dark-2 relative overflow-hidden">
