@@ -1,0 +1,379 @@
+{% extends "base.html" %}
+
+{% block title %}Submit for Promotion | VibePush Africa{% endblock %}
+{% block meta_description %}Submit your song or event for promotion. VibePush Africa promotes music releases, concerts,
+gospel events, and more across major digital platforms.{% endblock %}
+{% block og_title %}Submit for Promotion | VibePush Africa{% endblock %}
+
+{% block extra_head %}
+<!-- Google Form Endpoint IDs — Replace with YOUR actual form IDs -->
+<script>
+    // ===================================================
+    // IMPORTANT: Replace these with your actual Google Form entry IDs
+    // Song Form URL
+    const SONG_FORM_URL = 'https://docs.google.com/forms/d/e/YOUR_SONG_FORM_ID/formResponse';
+    const SONG_ENTRIES = {
+        artistName: 'entry.000000001',
+        songTitle: 'entry.000000002',
+        genre: 'entry.000000003',
+        releaseDate: 'entry.000000004',
+        streamingLink: 'entry.000000005',
+        plan: 'entry.000000006',
+        email: 'entry.000000007',
+        phone: 'entry.000000008',
+        notes: 'entry.000000009',
+    };
+    // Event Form URL
+    const EVENT_FORM_URL = 'https://docs.google.com/forms/d/e/YOUR_EVENT_FORM_ID/formResponse';
+    const EVENT_ENTRIES = {
+        eventName: 'entry.000000010',
+        organizer: 'entry.000000011',
+        eventDate: 'entry.000000012',
+        venue: 'entry.000000013',
+        city: 'entry.000000014',
+        description: 'entry.000000015',
+        plan: 'entry.000000016',
+        email: 'entry.000000017',
+        phone: 'entry.000000018',
+        notes: 'entry.000000019',
+    };
+    // ===================================================
+</script>
+{% endblock %}
+
+{% block content %}
+
+<!-- Page Hero -->
+<section class="relative pt-32 pb-16 overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-b from-pink-900/25 via-vibe-dark to-vibe-dark"></div>
+    <div class="absolute top-0 left-1/3 w-96 h-96 bg-pink-700/10 rounded-full blur-3xl"></div>
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div
+            class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-pink-600/15 border border-pink-500/20 mb-6 fade-in-element">
+            <i class="fas fa-upload text-pink-400 text-sm"></i>
+            <span class="text-pink-300 text-sm font-medium">Submit for Promotion</span>
+        </div>
+        <h1 class="font-display font-black text-5xl lg:text-7xl text-white mb-4 fade-in-element">
+            Submit & Get <span
+                class="bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 bg-clip-text text-transparent">Promoted</span>
+        </h1>
+        <p class="text-gray-300 text-xl max-w-2xl mx-auto fade-in-element">
+            Fill in the details below for your music release or event and we'll take it from there.
+        </p>
+    </div>
+</section>
+
+<!-- Tab Switcher -->
+<section class="pb-24 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+
+        <!-- Tabs -->
+        <div class="flex bg-white/5 border border-white/10 rounded-2xl p-1.5 mb-10 fade-in-element">
+            <button id="tabSong" onclick="switchTab('song')"
+                class="tab-btn flex-1 flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-sm transition-all duration-300 active-tab">
+                <i class="fas fa-music"></i> Song Promotion
+            </button>
+            <button id="tabEvent" onclick="switchTab('event')"
+                class="tab-btn flex-1 flex items-center justify-center gap-2 px-5 py-3 rounded-xl font-bold text-sm transition-all duration-300">
+                <i class="fas fa-calendar-star"></i> Event Promotion
+            </button>
+        </div>
+
+        <!-- ===== SONG FORM ===== -->
+        <div id="songPanel" class="fade-in-element">
+            <div class="p-8 rounded-3xl bg-card-gradient border border-white/10">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 rounded-2xl bg-purple-600/20 flex items-center justify-center">
+                        <i class="fas fa-music text-purple-400 text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-display font-bold text-xl text-white">Song Promotion</h2>
+                        <p class="text-gray-400 text-sm">For singles, EPs, and album releases</p>
+                    </div>
+                </div>
+
+                <!-- Success Message -->
+                <div id="songSuccess"
+                    class="hidden mb-6 p-4 rounded-xl bg-green-500/10 border border-green-500/30 text-green-300 flex items-center gap-3">
+                    <i class="fas fa-check-circle text-green-400 text-2xl"></i>
+                    <div>
+                        <div class="font-bold text-base">Submission Received! 🎉</div>
+                        <div class="text-sm opacity-80 mt-0.5">We'll review your song and contact you within 24 hours
+                            via email or WhatsApp.</div>
+                    </div>
+                </div>
+
+                <form id="songForm" novalidate>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="form-label">Artist Name <span class="text-pink-400">*</span></label>
+                            <input type="text" name="artistName" required placeholder="Your stage name"
+                                class="vibe-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/60 focus:bg-purple-600/5 transition-all duration-200" />
+                        </div>
+                        <div>
+                            <label class="form-label">Song Title <span class="text-pink-400">*</span></label>
+                            <input type="text" name="songTitle" required placeholder="Name of the song"
+                                class="vibe-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/60 focus:bg-purple-600/5 transition-all duration-200" />
+                        </div>
+                        <div>
+                            <label class="form-label">Genre <span class="text-pink-400">*</span></label>
+                            <select name="genre" required
+                                class="vibe-input w-full px-4 py-3 rounded-xl bg-vibe-dark-3 border border-white/10 text-white focus:outline-none focus:border-purple-500/60 transition-all duration-200 appearance-none">
+                                <option value="" disabled selected class="text-gray-500">Select genre</option>
+                                <option>Afrobeats</option>
+                                <option>Afropop</option>
+                                <option>Afro-Fusion</option>
+                                <option>Highlife</option>
+                                <option>Fuji</option>
+                                <option>Gospel</option>
+                                <option>Hip-Hop</option>
+                                <option>R&amp;B</option>
+                                <option>Amapiano</option>
+                                <option>Reggae/Dancehall</option>
+                                <option>Juju</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="form-label">Release Date <span class="text-pink-400">*</span></label>
+                            <input type="date" name="releaseDate" required
+                                class="vibe-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-purple-500/60 focus:bg-purple-600/5 transition-all duration-200" />
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="form-label">Streaming/Download Link <span
+                                    class="text-pink-400">*</span></label>
+                            <input type="url" name="streamingLink" required
+                                placeholder="https://open.spotify.com/... or audiomack link"
+                                class="vibe-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/60 focus:bg-purple-600/5 transition-all duration-200" />
+                        </div>
+                        <div>
+                            <label class="form-label">Promotion Plan <span class="text-pink-400">*</span></label>
+                            <select name="plan" required id="songPlanSelect"
+                                class="vibe-input w-full px-4 py-3 rounded-xl bg-vibe-dark-3 border border-white/10 text-white focus:outline-none focus:border-purple-500/60 transition-all duration-200 appearance-none">
+                                <option value="" disabled selected class="text-gray-500">Select a plan</option>
+                                <option value="Starter Push">🔥 Starter Push — ₦25,000 (7 Days)</option>
+                                <option value="Buzz Push">⚡ Buzz Push — ₦60,000 (14 Days)</option>
+                                <option value="Premium Push">🚀 Premium Push — ₦150,000 (30 Days)</option>
+                                <option value="Custom">🎯 Custom Package</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="form-label">Contact Email <span class="text-pink-400">*</span></label>
+                            <input type="email" name="email" required placeholder="your@email.com"
+                                class="vibe-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/60 focus:bg-purple-600/5 transition-all duration-200" />
+                        </div>
+                        <div>
+                            <label class="form-label">Phone Number <span class="text-pink-400">*</span></label>
+                            <input type="tel" name="phone" required placeholder="+234 000 000 0000"
+                                class="vibe-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/60 focus:bg-purple-600/5 transition-all duration-200" />
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="form-label">Additional Notes</label>
+                            <textarea name="notes" rows="4"
+                                placeholder="Any extra info: target audience, specific platforms, campaign goals..."
+                                class="vibe-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/60 focus:bg-purple-600/5 transition-all duration-200 resize-none"></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="songSubmitBtn"
+                        class="mt-6 w-full px-6 py-4 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg hover:from-purple-500 hover:to-pink-500 transition-all duration-300 shadow-xl hover:shadow-purple-500/30 hover:scale-[1.02] transform flex items-center justify-center gap-3 disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100">
+                        <i class="fas fa-rocket" id="songBtnIcon"></i>
+                        <span id="songBtnText">Submit Song for Promotion</span>
+                        <div id="songSpinner"
+                            class="hidden w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin">
+                        </div>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- ===== EVENT FORM ===== -->
+        <div id="eventPanel" class="hidden fade-in-element" id="event">
+            <div class="p-8 rounded-3xl bg-card-gradient border border-white/10">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 rounded-2xl bg-pink-600/20 flex items-center justify-center">
+                        <i class="fas fa-calendar-star text-pink-400 text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="font-display font-bold text-xl text-white">Event Promotion</h2>
+                        <p class="text-gray-400 text-sm">For concerts, festivals, gospel events, DJ nights & more</p>
+                    </div>
+                </div>
+
+                <!-- Success Message -->
+                <div id="eventSuccess"
+                    class="hidden mb-6 p-4 rounded-xl bg-green-500/10 border border-green-500/30 text-green-300 flex items-center gap-3">
+                    <i class="fas fa-check-circle text-green-400 text-2xl"></i>
+                    <div>
+                        <div class="font-bold text-base">Event Submitted! 🎉</div>
+                        <div class="text-sm opacity-80 mt-0.5">Our team will reach out within 24 hours to get your
+                            campaign started.</div>
+                    </div>
+                </div>
+
+                <form id="eventForm" novalidate>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                        <div>
+                            <label class="form-label">Event Name <span class="text-pink-400">*</span></label>
+                            <input type="text" name="eventName" required placeholder="Name of your event"
+                                class="vibe-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-pink-500/60 focus:bg-pink-600/5 transition-all duration-200" />
+                        </div>
+                        <div>
+                            <label class="form-label">Organizer Name <span class="text-pink-400">*</span></label>
+                            <input type="text" name="organizer" required placeholder="Your name or organization"
+                                class="vibe-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-pink-500/60 focus:bg-pink-600/5 transition-all duration-200" />
+                        </div>
+                        <div>
+                            <label class="form-label">Event Date <span class="text-pink-400">*</span></label>
+                            <input type="date" name="eventDate" required
+                                class="vibe-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white focus:outline-none focus:border-pink-500/60 focus:bg-pink-600/5 transition-all duration-200" />
+                        </div>
+                        <div>
+                            <label class="form-label">City <span class="text-pink-400">*</span></label>
+                            <input type="text" name="city" required placeholder="e.g. Lagos, Abuja, Port Harcourt"
+                                class="vibe-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-pink-500/60 focus:bg-pink-600/5 transition-all duration-200" />
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="form-label">Venue <span class="text-pink-400">*</span></label>
+                            <input type="text" name="venue" required placeholder="Full venue name and address"
+                                class="vibe-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-pink-500/60 focus:bg-pink-600/5 transition-all duration-200" />
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="form-label">Event Description <span class="text-pink-400">*</span></label>
+                            <textarea name="description" rows="3" required
+                                placeholder="Describe the event, artists performing, expected attendance, theme..."
+                                class="vibe-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-pink-500/60 focus:bg-pink-600/5 transition-all duration-200 resize-none"></textarea>
+                        </div>
+                        <div>
+                            <label class="form-label">Promotion Plan <span class="text-pink-400">*</span></label>
+                            <select name="plan" required
+                                class="vibe-input w-full px-4 py-3 rounded-xl bg-vibe-dark-3 border border-white/10 text-white focus:outline-none focus:border-pink-500/60 transition-all duration-200 appearance-none">
+                                <option value="" disabled selected class="text-gray-500">Select a plan</option>
+                                <option value="Event Promotion Package">🎪 Event Promotion Package — ₦80,000 (10–14
+                                    Days)</option>
+                                <option value="Event Dominate">👑 Event Dominate — ₦180,000 (21–30 Days)</option>
+                                <option value="Custom">🎯 Custom Package</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="form-label">Contact Email <span class="text-pink-400">*</span></label>
+                            <input type="email" name="email" required placeholder="your@email.com"
+                                class="vibe-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-pink-500/60 focus:bg-pink-600/5 transition-all duration-200" />
+                        </div>
+                        <div>
+                            <label class="form-label">Phone Number <span class="text-pink-400">*</span></label>
+                            <input type="tel" name="phone" required placeholder="+234 000 000 0000"
+                                class="vibe-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-pink-500/60 focus:bg-pink-600/5 transition-all duration-200" />
+                        </div>
+                        <div class="sm:col-span-2">
+                            <label class="form-label">Additional Notes</label>
+                            <textarea name="notes" rows="3"
+                                placeholder="Ticketing links, flyers, special requirements, social handles..."
+                                class="vibe-input w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-pink-500/60 focus:bg-pink-600/5 transition-all duration-200 resize-none"></textarea>
+                        </div>
+                    </div>
+
+                    <button type="submit" id="eventSubmitBtn"
+                        class="mt-6 w-full px-6 py-4 rounded-xl bg-gradient-to-r from-pink-600 to-rose-500 text-white font-bold text-lg hover:from-pink-500 hover:to-rose-400 transition-all duration-300 shadow-xl hover:shadow-pink-500/30 hover:scale-[1.02] transform flex items-center justify-center gap-3 disabled:opacity-60 disabled:cursor-not-allowed disabled:scale-100">
+                        <i class="fas fa-rocket" id="eventBtnIcon"></i>
+                        <span id="eventBtnText">Submit Event for Promotion</span>
+                        <div id="eventSpinner"
+                            class="hidden w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin">
+                        </div>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+    // ----- TAB SWITCHING -----
+    function switchTab(tab) {
+        const songPanel = document.getElementById('songPanel');
+        const eventPanel = document.getElementById('eventPanel');
+        const tabSong = document.getElementById('tabSong');
+        const tabEvent = document.getElementById('tabEvent');
+
+        if (tab === 'song') {
+            songPanel.classList.remove('hidden');
+            eventPanel.classList.add('hidden');
+            tabSong.classList.add('active-tab');
+            tabEvent.classList.remove('active-tab');
+        } else {
+            eventPanel.classList.remove('hidden');
+            songPanel.classList.add('hidden');
+            tabEvent.classList.add('active-tab');
+            tabSong.classList.remove('active-tab');
+            // Scroll to event panel
+            eventPanel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+
+    // Check URL hash on load
+    window.addEventListener('DOMContentLoaded', () => {
+        if (window.location.hash === '#event') switchTab('event');
+
+        // Apply plan from URL param
+        const params = new URLSearchParams(window.location.search);
+        const plan = params.get('plan');
+        if (plan) {
+            const sel = document.getElementById('songPlanSelect');
+            for (let opt of sel.options) {
+                if (opt.value === plan) { sel.value = plan; break; }
+            }
+        }
+    });
+
+    // ----- FORM HELPER -----
+    async function submitToGoogle(formId, successId, btnId, btnTextId, btnIconId, spinnerId, formUrl, entries) {
+        const form = document.getElementById(formId);
+        const btn = document.getElementById(btnId);
+        const btnText = document.getElementById(btnTextId);
+        const btnIcon = document.getElementById(btnIconId);
+        const spinner = document.getElementById(spinnerId);
+        const success = document.getElementById(successId);
+
+        btn.disabled = true;
+        btnText.textContent = 'Submitting...';
+        btnIcon.classList.add('hidden');
+        spinner.classList.remove('hidden');
+
+        const fd = new FormData(form);
+        const params = new URLSearchParams();
+        Object.entries(entries).forEach(([key, entry]) => {
+            if (fd.get(key)) params.append(entry, fd.get(key));
+        });
+
+        try {
+            await fetch(formUrl, { method: 'POST', mode: 'no-cors', body: params });
+        } catch (_) { /* Google Forms returns opaque – treat as success */ }
+
+        success.classList.remove('hidden');
+        form.reset();
+        success.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+        btn.disabled = false;
+        btnText.textContent = formId === 'songForm' ? 'Submit Song for Promotion' : 'Submit Event for Promotion';
+        btnIcon.classList.remove('hidden');
+        spinner.classList.add('hidden');
+    }
+
+    // ----- SONG FORM -----
+    document.getElementById('songForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        submitToGoogle('songForm', 'songSuccess', 'songSubmitBtn', 'songBtnText', 'songBtnIcon', 'songSpinner',
+            SONG_FORM_URL, SONG_ENTRIES);
+    });
+
+    // ----- EVENT FORM -----
+    document.getElementById('eventForm').addEventListener('submit', function (e) {
+        e.preventDefault();
+        submitToGoogle('eventForm', 'eventSuccess', 'eventSubmitBtn', 'eventBtnText', 'eventBtnIcon', 'eventSpinner',
+            EVENT_FORM_URL, EVENT_ENTRIES);
+    });
+</script>
+{% endblock %}

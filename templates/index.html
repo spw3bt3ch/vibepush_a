@@ -1,0 +1,385 @@
+{% extends "base.html" %}
+
+{% block title %}VibePush Africa | Amplifying African Sounds & Events{% endblock %}
+
+{% block content %}
+
+<!-- ===== HERO SECTION ===== -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Animated Background Layers -->
+    <div class="absolute inset-0 bg-hero-gradient"></div>
+    <div class="absolute inset-0 concert-lights-bg"></div>
+    <div class="absolute inset-0 noise-overlay"></div>
+
+    <!-- Floating vinyl records -->
+    <div class="absolute top-16 right-10 w-32 h-32 opacity-10 animate-spin-slow hidden lg:block">
+        <div class="vinyl-record w-full h-full"></div>
+    </div>
+    <div class="absolute bottom-24 left-8 w-20 h-20 opacity-10 animate-spin-slow hidden lg:block"
+        style="animation-direction:reverse; animation-duration:12s;">
+        <div class="vinyl-record w-full h-full"></div>
+    </div>
+
+    <!-- Glowing orbs -->
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-700/20 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-pink-600/15 rounded-full blur-3xl animate-pulse"
+        style="animation-delay:1s;"></div>
+    <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl">
+    </div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 pb-16">
+        <!-- Badge -->
+        <div
+            class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-purple-500/30 backdrop-blur-sm mb-8 fade-in-element">
+            <div class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></div>
+            <span class="text-sm text-gray-300 font-medium">🎵 Africa's Premier Music Promotion Platform</span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="font-display font-black text-5xl sm:text-6xl lg:text-8xl leading-none mb-6 fade-in-element"
+            style="animation-delay:0.1s;">
+            <span class="block text-white">Amplify Your</span>
+            <span
+                class="block bg-gradient-to-r from-purple-400 via-pink-400 to-blue-400 bg-clip-text text-transparent">Music
+                & Events</span>
+        </h1>
+
+        <!-- Subtext -->
+        <p class="text-gray-300 text-lg sm:text-xl lg:text-2xl max-w-3xl mx-auto mb-10 leading-relaxed fade-in-element"
+            style="animation-delay:0.2s;">
+            Promote your songs, concerts, and creative experiences across powerful digital platforms. Amplifying African
+            Sounds & Events.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center fade-in-element"
+            style="animation-delay:0.3s;">
+            <a href="/submit"
+                class="cta-btn group px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold text-lg hover:from-purple-500 hover:to-pink-500 transition-all duration-300 shadow-2xl hover:shadow-purple-500/50 hover:scale-105 transform flex items-center gap-3 w-full sm:w-auto justify-center">
+                <i class="fas fa-music group-hover:rotate-12 transition-transform duration-300"></i>
+                Promote Your Music
+                <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform duration-300"></i>
+            </a>
+            <a href="/submit#event"
+                class="cta-btn group px-8 py-4 rounded-2xl bg-white/5 border border-white/20 text-white font-bold text-lg hover:bg-white/10 hover:border-purple-500/50 transition-all duration-300 backdrop-blur-sm flex items-center gap-3 w-full sm:w-auto justify-center">
+                <i class="fas fa-calendar-star group-hover:scale-110 transition-transform duration-300"></i>
+                Promote Your Event
+                <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform duration-300"></i>
+            </a>
+        </div>
+
+        <!-- Hero Stats -->
+        <div class="flex flex-wrap justify-center gap-8 mt-16 fade-in-element" style="animation-delay:0.4s;">
+            <div class="text-center">
+                <div class="text-3xl font-display font-black text-white">500+</div>
+                <div class="text-sm text-gray-400 mt-1">Artists Promoted</div>
+            </div>
+            <div class="w-px h-12 bg-white/10 self-center hidden sm:block"></div>
+            <div class="text-center">
+                <div class="text-3xl font-display font-black text-white">200+</div>
+                <div class="text-sm text-gray-400 mt-1">Events Covered</div>
+            </div>
+            <div class="w-px h-12 bg-white/10 self-center hidden sm:block"></div>
+            <div class="text-center">
+                <div class="text-3xl font-display font-black text-white">10M+</div>
+                <div class="text-sm text-gray-400 mt-1">Audience Reached</div>
+            </div>
+            <div class="w-px h-12 bg-white/10 self-center hidden sm:block"></div>
+            <div class="text-center">
+                <div class="text-3xl font-display font-black text-white">15+</div>
+                <div class="text-sm text-gray-400 mt-1">Platforms Covered</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Soundwave Divider -->
+    <div class="absolute bottom-0 left-0 right-0">
+        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full">
+            <path d="M0 40 Q180 0 360 40 Q540 80 720 40 Q900 0 1080 40 Q1260 80 1440 40 L1440 80 L0 80 Z" fill="#0A0A0F"
+                opacity="0.8" />
+        </svg>
+    </div>
+</section>
+
+<!-- ===== WHO WE ARE ===== -->
+<section class="py-20 bg-vibe-dark relative overflow-hidden" id="about">
+    <div class="absolute top-0 right-0 w-64 h-64 bg-purple-700/5 rounded-full blur-3xl"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <!-- Text Content -->
+            <div class="fade-in-element">
+                <div
+                    class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-purple-600/15 border border-purple-500/20 mb-6">
+                    <i class="fas fa-info-circle text-purple-400 text-sm"></i>
+                    <span class="text-purple-300 text-sm font-medium">Who We Are</span>
+                </div>
+                <h2 class="font-display font-black text-4xl lg:text-5xl text-white mb-6 leading-tight">
+                    Africa's <span
+                        class="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Boldest</span>
+                    Promotion Platform
+                </h2>
+                <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                    VibePush Africa is a music promotion and event publicity platform created to support African talent
+                    and creative events. We exist to help artists, event organizers, and creative brands overcome
+                    visibility challenges by connecting their work to the right audience through strategic digital
+                    promotion.
+                </p>
+                <p class="text-gray-400 leading-relaxed mb-8">
+                    In an industry where great music and powerful events can easily go unnoticed, VibePush Africa serves
+                    as a bridge between creativity and visibility—ensuring that African sounds and experiences receive
+                    the attention they deserve.
+                </p>
+                <a href="/plans"
+                    class="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold hover:from-purple-500 hover:to-pink-500 transition-all duration-300 shadow-lg hover:shadow-purple-500/40">
+                    View Our Plans <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+
+            <!-- Visual Cards -->
+            <div class="grid grid-cols-2 gap-4 fade-in-element">
+                <div
+                    class="service-card p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-purple-500/40 hover:bg-purple-600/5 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-purple-600/20 flex items-center justify-center mb-4">
+                        <i class="fas fa-microphone-alt text-purple-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Music Promotion</h3>
+                    <p class="text-gray-400 text-sm">Singles, EPs, albums across all major platforms</p>
+                </div>
+                <div
+                    class="service-card p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-pink-500/40 hover:bg-pink-600/5 transition-all duration-300 mt-6">
+                    <div class="w-12 h-12 rounded-xl bg-pink-600/20 flex items-center justify-center mb-4">
+                        <i class="fas fa-calendar-check text-pink-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Event Publicity</h3>
+                    <p class="text-gray-400 text-sm">Concerts, festivals, and live experiences</p>
+                </div>
+                <div
+                    class="service-card p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-blue-500/40 hover:bg-blue-600/5 transition-all duration-300">
+                    <div class="w-12 h-12 rounded-xl bg-blue-600/20 flex items-center justify-center mb-4">
+                        <i class="fas fa-users text-blue-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Influencer Network</h3>
+                    <p class="text-gray-400 text-sm">End-to-end influencer marketing campaigns</p>
+                </div>
+                <div
+                    class="service-card p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-gold-500/40 hover:bg-yellow-600/5 transition-all duration-300 mt-6">
+                    <div class="w-12 h-12 rounded-xl bg-yellow-600/20 flex items-center justify-center mb-4">
+                        <i class="fas fa-chart-line text-yellow-400 text-xl"></i>
+                    </div>
+                    <h3 class="text-white font-semibold mb-2">Analytics</h3>
+                    <p class="text-gray-400 text-sm">Track your campaign performance in real time</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SOUNDWAVE DIVIDER ===== -->
+<div class="soundwave-divider py-4">
+    <div class="flex items-end justify-center gap-1 h-10">
+        {% for i in range(40) %}
+        <div class="soundwave-bar bg-gradient-to-t from-purple-600 to-pink-500 rounded-sm w-1.5"
+            style="animation-delay: {{ loop.index * 0.05 }}s;"></div>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- ===== WHAT WE DO ===== -->
+<section class="py-20 bg-vibe-dark-2 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-purple-900/5 to-blue-900/5"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14 fade-in-element">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-600/15 border border-blue-500/20 mb-6">
+                <i class="fas fa-bolt text-blue-400 text-sm"></i>
+                <span class="text-blue-300 text-sm font-medium">What We Do</span>
+            </div>
+            <h2 class="font-display font-black text-4xl lg:text-5xl text-white mb-4">
+                Structured Promotion <span
+                    class="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Solutions</span>
+            </h2>
+            <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+                We provide tailored promotion aligned with your goals, audience, and timeline.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% set services = [
+            {"icon": "fa-compact-disc", "color": "purple", "title": "Music Releases", "desc": "Singles, EPs, and albums
+            — we push your sound across every major streaming and social platform."},
+            {"icon": "fa-ticket-alt", "color": "pink", "title": "Concerts & Live Performances", "desc": "Get your event
+            in front of the right crowd with targeted digital campaigns before showtime."},
+            {"icon": "fa-headphones-alt", "color": "blue", "title": "Album Listening Parties", "desc": "Create hype and
+            engagement around exclusive listening events with precision promotion."},
+            {"icon": "fa-turntable", "color": "yellow", "title": "DJ Events & Nightlife", "desc": "From club nights to
+            rooftop parties—we make sure tickets sell and dancefloors fill up."},
+            {"icon": "fa-church", "color": "green", "title": "Gospel & Church Events", "desc": "Faith-based music and
+            events deserve broad audiences. We help spread the message right."},
+            {"icon": "fa-star", "color": "red", "title": "Music Festivals", "desc": "Full-scale festival promotion
+            across social media, blogs, and influencer networks."}
+            ] %}
+            {% for svc in services %}
+            <div
+                class="service-card fade-in-element group p-6 rounded-2xl bg-card-gradient border border-white/8 hover:border-{{ svc.color }}-500/40 hover:bg-{{ svc.color }}-600/5 transition-all duration-300 cursor-default">
+                <div
+                    class="w-14 h-14 rounded-2xl bg-{{ svc.color }}-600/15 flex items-center justify-center mb-5 group-hover:bg-{{ svc.color }}-600/25 transition-colors duration-300">
+                    <i class="fas {{ svc.icon }} text-{{ svc.color }}-400 text-2xl"></i>
+                </div>
+                <h3 class="text-white font-display font-bold text-lg mb-3">{{ svc.title }}</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">{{ svc.desc }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ===== FEATURED ARTISTS / EVENTS ===== -->
+<section class="py-20 bg-vibe-dark relative overflow-hidden">
+    <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-purple-800/5 rounded-full blur-3xl pointer-events-none">
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14 fade-in-element">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-pink-600/15 border border-pink-500/20 mb-6">
+                <i class="fas fa-fire text-pink-400 text-sm"></i>
+                <span class="text-pink-300 text-sm font-medium">Featured Promotions</span>
+            </div>
+            <h2 class="font-display font-black text-4xl lg:text-5xl text-white mb-4">
+                Recently <span
+                    class="bg-gradient-to-r from-pink-400 to-red-400 bg-clip-text text-transparent">Amplified</span>
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {% set featured = [
+            {"type": "Music", "name": "Davido - 'Timeless'", "tag": "Afrobeats", "color": "purple", "reach": "2.3M
+            reached"},
+            {"type": "Event", "name": "Afro Nation Lagos 2025", "tag": "Festival", "color": "pink", "reach": "500K
+            reached"},
+            {"type": "Music", "name": "Burna Boy - New Single", "tag": "Afro-Fusion", "color": "blue", "reach": "4.1M
+            reached"},
+            {"type": "Event", "name": "Gospel Praise Night", "tag": "Gospel", "color": "green", "reach": "120K
+            reached"},
+            {"type": "Music", "name": "Asake - Album Drop", "tag": "Afropop", "color": "yellow", "reach": "3.7M
+            reached"},
+            {"type": "Event", "name": "DJ Neptune Live Set", "tag": "Nightlife", "color": "red", "reach": "200K
+            reached"}
+            ] %}
+            {% for item in featured %}
+            <div
+                class="featured-card fade-in-element group relative rounded-2xl overflow-hidden border border-white/8 hover:border-{{ item.color }}-500/40 transition-all duration-300 hover:-translate-y-1">
+                <div class="h-40 bg-gradient-to-br from-{{ item.color }}-900/60 to-vibe-dark-3 relative">
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <i
+                            class="fas {% if item.type == 'Music' %}fa-music{% else %}fa-calendar{% endif %} text-6xl text-{{ item.color }}-500/20 group-hover:text-{{ item.color }}-500/30 transition-all duration-300"></i>
+                    </div>
+                    <div class="absolute top-3 left-3">
+                        <span
+                            class="px-2.5 py-1 rounded-full text-xs font-semibold bg-{{ item.color }}-600/80 text-white backdrop-blur-sm">{{
+                            item.type }}</span>
+                    </div>
+                    <div class="absolute top-3 right-3">
+                        <span
+                            class="px-2.5 py-1 rounded-full text-xs font-medium bg-black/40 text-gray-300 backdrop-blur-sm border border-white/10">{{
+                            item.tag }}</span>
+                    </div>
+                </div>
+                <div class="p-5 bg-card-gradient">
+                    <h3 class="text-white font-semibold mb-1">{{ item.name }}</h3>
+                    <div class="flex items-center gap-2 text-sm text-gray-400">
+                        <i class="fas fa-chart-bar text-{{ item.color }}-400 text-xs"></i>
+                        <span>{{ item.reach }}</span>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ===== TESTIMONIALS ===== -->
+<section class="py-20 bg-vibe-dark-3 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14 fade-in-element">
+            <div
+                class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-yellow-600/15 border border-yellow-500/20 mb-6">
+                <i class="fas fa-star text-yellow-400 text-sm"></i>
+                <span class="text-yellow-300 text-sm font-medium">Testimonials</span>
+            </div>
+            <h2 class="font-display font-black text-4xl lg:text-5xl text-white mb-4">
+                What Our <span
+                    class="bg-gradient-to-r from-yellow-400 to-orange-400 bg-clip-text text-transparent">Clients
+                    Say</span>
+            </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {% set testimonials = [
+            {"name": "Kolade Adeyemi", "role": "Independent Artist", "text": "VibePush Africa took my single from 500
+            streams to over 200,000 in just two weeks! Their team is professional, fast, and truly passionate about
+            African music.", "rating": 5, "icon": "🎤"},
+            {"name": "Funmi Okafor", "role": "Event Organizer", "tag": "Lagos Vibe Fest", "text": "I used VibePush for
+            my concert and all 400 tickets were sold out 5 days before the event. Their digital campaign was targeted
+            and incredibly effective.", "rating": 5, "icon": "🎉"},
+            {"name": "Pastor Emeka Nwosu", "role": "Gospel Artist", "text": "They treated our gospel concert with
+            respect and professionalism. The outreach was incredible and attendance doubled compared to our last event.
+            God bless VibePush Africa!", "rating": 5, "icon": "✝️"}
+            ] %}
+            {% for t in testimonials %}
+            <div
+                class="testimonial-card fade-in-element p-6 rounded-2xl bg-white/3 border border-white/8 hover:border-yellow-500/20 hover:bg-yellow-500/3 transition-all duration-300">
+                <div class="flex mb-4">
+                    {% for _ in range(t.rating) %}<i class="fas fa-star text-yellow-400 text-sm"></i>{% endfor %}
+                </div>
+                <p class="text-gray-300 text-sm leading-relaxed mb-6 italic">"{{ t.text }}"</p>
+                <div class="flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 rounded-full bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center text-lg">
+                        {{ t.icon }}
+                    </div>
+                    <div>
+                        <div class="text-white font-semibold text-sm">{{ t.name }}</div>
+                        <div class="text-gray-400 text-xs">{{ t.role }}</div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ===== CTA BANNER ===== -->
+<section class="py-20 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-r from-purple-900/90 via-pink-900/80 to-blue-900/90"></div>
+    <div class="absolute inset-0 concert-lights-bg opacity-30"></div>
+    <div class="absolute inset-0 noise-overlay opacity-30"></div>
+
+    <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in-element">
+        <div class="text-6xl mb-6">🎶</div>
+        <h2 class="font-display font-black text-4xl lg:text-6xl text-white mb-6">
+            Ready to Get <span
+                class="bg-gradient-to-r from-yellow-300 to-pink-300 bg-clip-text text-transparent">Heard?</span>
+        </h2>
+        <p class="text-gray-200 text-xl mb-10 leading-relaxed">
+            Join hundreds of African artists and event organizers already benefiting from our promotion services. Your
+            audience is waiting.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="/submit"
+                class="px-10 py-4 rounded-2xl bg-white text-purple-900 font-bold text-lg hover:bg-gray-100 transition-all duration-300 shadow-2xl hover:scale-105 transform">
+                Start Promotion Now
+            </a>
+            <a href="/plans"
+                class="px-10 py-4 rounded-2xl border-2 border-white/40 text-white font-bold text-lg hover:bg-white/10 hover:border-white/60 transition-all duration-300 backdrop-blur-sm">
+                View Plans
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
