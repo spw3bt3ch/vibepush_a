@@ -1,0 +1,192 @@
+/* =====================================================
+   VibePush Africa — Custom CSS
+   ===================================================== */
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0A0A0F; }
+::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #6D28D9, #EC4899); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #7C3AED, #F472B6); }
+
+/* ---------- Navbar ---------- */
+#navbar {
+  background: transparent;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease, border-color 0.3s ease;
+}
+#navbar.scrolled {
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.4);
+}
+.nav-link.active {
+  color: #fff;
+  background: rgba(109, 40, 217, 0.2);
+  border-bottom: 2px solid #7C3AED;
+}
+
+/* ---------- Hero Background ---------- */
+.concert-lights-bg {
+  background:
+    radial-gradient(ellipse at 20% 50%, rgba(109,40,217,0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(236,72,153,0.2) 0%, transparent 50%),
+    radial-gradient(ellipse at 60% 80%, rgba(37,99,235,0.15) 0%, transparent 40%),
+    radial-gradient(ellipse at 10% 90%, rgba(245,158,11,0.08) 0%, transparent 40%);
+  animation: shiftLights 10s ease-in-out infinite alternate;
+}
+@keyframes shiftLights {
+  0%   { opacity: 0.7; }
+  50%  { opacity: 1; }
+  100% { opacity: 0.8; }
+}
+
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* ---------- Vinyl Record ---------- */
+.vinyl-record {
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at center, #1a1a1a 20%, #333 22%, #111 30%, #2a2a2a 35%, #111 37%,
+    repeating-radial-gradient(circle at center, #111 0%, #1a1a1a 2%, #111 4%));
+  box-shadow: 0 0 30px rgba(109,40,217,0.3);
+  position: relative;
+}
+.vinyl-record::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20%; height: 20%;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6D28D9, #EC4899);
+  box-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
+}
+
+/* ---------- Soundwave Bars ---------- */
+.soundwave-bar {
+  width: 4px;
+  min-height: 4px;
+  animation: soundWave 1.2s ease-in-out infinite alternate;
+}
+.soundwave-bar:nth-child(odd)  { animation-duration: 0.9s; }
+.soundwave-bar:nth-child(even) { animation-duration: 1.4s; }
+@keyframes soundWave {
+  0%   { height: 4px; opacity: 0.4; }
+  50%  { height: 28px; opacity: 0.9; }
+  100% { height: 8px; opacity: 0.6; }
+}
+
+/* ---------- Fade-in on Scroll ---------- */
+.fade-in-element {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in-element.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ---------- Service Cards ---------- */
+.service-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(109, 40, 217, 0.15);
+}
+
+/* ---------- Plan Cards ---------- */
+.plan-card {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.plan-card:hover {
+  box-shadow: 0 30px 80px rgba(109, 40, 217, 0.25);
+}
+
+/* ---------- Featured Cards ---------- */
+.featured-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.featured-card:hover {
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- Testimonial Cards ---------- */
+.testimonial-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.testimonial-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(245, 158, 11, 0.1);
+}
+
+/* ---------- Form Inputs ---------- */
+.vibe-input:focus {
+  box-shadow: 0 0 0 3px rgba(109, 40, 217, 0.15);
+}
+.form-label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #D1D5DB;
+  margin-bottom: 0.5rem;
+}
+select option { background: #1A1A2E; color: #fff; }
+
+/* ---------- Tab Buttons ---------- */
+.tab-btn {
+  color: #9CA3AF;
+  font-weight: 600;
+}
+.tab-btn.active-tab {
+  background: linear-gradient(135deg, #6D28D9, #EC4899);
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(109, 40, 217, 0.4);
+}
+.tab-btn:not(.active-tab):hover {
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+}
+
+/* ---------- CTA Buttons ---------- */
+.cta-btn {
+  position: relative;
+  overflow: hidden;
+}
+.cta-btn::before {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 0; height: 0;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+  transform: translate(-50%,-50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+.cta-btn:hover::before { width: 300px; height: 300px; }
+
+/* ---------- Social Icon Hover ---------- */
+.social-icon { transition: transform 0.2s ease; }
+.social-icon:hover { transform: translateY(-3px) scale(1.1); }
+
+/* ---------- Footer Bottom ---------- */
+.footer-bottom-text {
+  transition: opacity 0.3s ease, color 0.3s ease;
+}
+.footer-bottom-text:hover { opacity: 1 !important; color: #D1D5DB; }
+
+/* ---------- Smooth Scroll ---------- */
+html { scroll-behavior: smooth; }
+
+/* ---------- Selection ---------- */
+::selection { background: rgba(109, 40, 217, 0.4); color: #fff; }
+
+/* ---------- Responsive Utilities ---------- */
+@media (max-width: 640px) {
+  .soundwave-bar { width: 3px; }
+}
